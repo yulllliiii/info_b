@@ -171,7 +171,7 @@ public class BoardController  {
 		
 		return "boardModify";
 	}
-	
+	//수정하기
 	@RequestMapping(value="/board/boardModifyAction.do")
 	public String boardModifyAction(
 			@RequestParam("bidx") int bidx,
