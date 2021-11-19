@@ -96,11 +96,7 @@ public class BoardController  {
 	@RequestMapping(value="/boardList.do")
 	public String boardList(SearchCriteria scri, Model model) {
 		
-		// serviceimpl 처占쏙옙
-		// 占쏙옙체 占쏙옙占쏙옙占쏙옙 占싱아놂옙占쏙옙
-		// 占쏙옙체占쏙옙占쏙옙트 占싱아놂옙占쏙옙
-		// 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙커占쏙옙 占쏙옙占�
-		// Model占쏙옙 占쏙옙티占� 화占썽에 占싼깍옙占�
+	
 	int cnt = bs.boardTotalCount(scri);
 	System.out.println("cnt"+cnt);
 	ArrayList<BoardVo> alist = 	bs.boardSelectAll(scri);
@@ -120,13 +116,14 @@ public class BoardController  {
 			@RequestParam("bidx") int bidx,		
 			Model model,HttpSession session) {		
 		
-		//bidx占쏙옙 占싼곤옙占쌍곤옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占싶몌옙 占쏙옙占쏙옙占쏙옙占쏙옙
+
 		BoardVo bv = bs.boardSelectOne(bidx);
-		//占쏜델울옙 占쏙옙튼占쏙옙占쏙옙占� 화占쏙옙占쏙옙占쏙옙 占싼곤옙占쌔댐옙
+		
+		
 		model.addAttribute("bv", bv);
 		bs.plusCnt(bidx);//조회수
 		bs.hitCnt(bidx);//추천수 
-		//占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占싻놂옙占쌈곤옙 회占쏙옙占쏙옙호占쏙옙 占싼곤옙占쏙옙
+		
 		int midx = (int)session.getAttribute("midx");
 		String membernickname = (String)session.getAttribute("membernickname");
 		model.addAttribute("midx", midx);
@@ -165,7 +162,7 @@ public class BoardController  {
 			@RequestParam("bidx") int bidx, 
 			Model model) {
 		
-		//boardService占쏙옙 占쌍댐옙 占쌨소듸옙 호占쏙옙
+		
 		BoardVo bv = bs.boardSelectOne(bidx);
 		model.addAttribute("bv", bv);		
 		
@@ -181,7 +178,7 @@ public class BoardController  {
 			RedirectAttributes rttr
 			) {
 		
-			//占쌨소듸옙 호占쏙옙占싼댐옙
+		
 		int value = bs.boardModify(bidx, subject, contents, pwd);
 		
 		String movelocation = null;
@@ -199,7 +196,7 @@ public class BoardController  {
 	public String boardDelete(
 			@ModelAttribute("bidx") int bidx,Model model) {
 		
-		//boardService占쏙옙 占쌍댐옙 占쌨소듸옙 호占쏙옙
+		
 		BoardVo bv = bs.boardSelectOne(bidx);
 		model.addAttribute("bv", bv);		
 		
@@ -213,7 +210,7 @@ public class BoardController  {
 			RedirectAttributes rttr
 			) {
 		
-			//占쌨소듸옙 호占쏙옙占싼댐옙
+			
 		int value = bs.boardDelete(bidx, pwd);
 		rttr.addFlashAttribute("msg", "占쏙옙占쏙옙占실억옙占쏙옙占싹댐옙.");
 		
@@ -227,7 +224,7 @@ public class BoardController  {
 	@RequestMapping(value="/board/uploadAjax.do",method=RequestMethod.POST,produces="text/plain;charset=UTF-8")
 	public ResponseEntity<String> uploadAjax(MultipartFile file) throws Exception{
 		
-		System.out.println("占쏙옙占쏙옙占싱몌옙:"+file.getOriginalFilename());		
+		System.out.println("파일:"+file.getOriginalFilename());		
 	
 		String uploadedFileName = UploadFileUtiles.uploadFile(uploadPath, 
 				file.getOriginalFilename(), 

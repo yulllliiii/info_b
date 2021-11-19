@@ -1,8 +1,11 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/ezen/myapp/controller/BoardController.java=UTF-8
 encoding//src/main/java/com/ezen/myapp/controller/MemberController.java=UTF-8
+encoding//src/main/java/com/ezen/myapp/interceptor/LoginInterceptor.java=UTF-8
 encoding//src/main/java/com/ezen/myapp/persistence/BoardService_Mapper.java=UTF-8
 encoding//src/main/java/com/ezen/myapp/persistence/MemberService_Mapper.java=UTF-8
 encoding//src/main/java/com/ezen/myapp/persistence/NoteService_Mapper.java=UTF-8
 encoding//src/main/java/com/ezen/myapp/service/BoardServiceImpl.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/home.jsp=UTF-8
+encoding//src/main/webapp/kakaoLogin.jsp=UTF-8
+encoding//src/main/webapp/memberLogin.jsp=UTF-8

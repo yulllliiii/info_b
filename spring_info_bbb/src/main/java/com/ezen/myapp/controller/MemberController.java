@@ -64,7 +64,7 @@ public class MemberController {
 	private String uploadPath;
 
 	
-	//占싸깍옙占쏙옙
+	//로그인 페이지
 	@RequestMapping(value="/memberLogin.do")
 	public String memberLogin() {				
 		
@@ -102,7 +102,7 @@ public class MemberController {
 		
 		return path;
 	}
-	//회占쏙옙占쏙옙占쏙옙
+	//회원가입 페이지
 	@RequestMapping(value="/memberJoin.do")
 	public String memberJoin() {				
 		
@@ -127,7 +127,7 @@ public class MemberController {
 					@RequestParam("intro") String intro, 
 					 Model model) {
 				
-				String savePath = "D:/dev_html/uploadFile";
+				String savePath = "D:/sts-dev/uploadfiles";
 				// String savePath = request.getRealPath("testimg"); // 파일이 저장될 프로젝트 안의 폴더 경로
 				String rename=null;
 		
@@ -190,7 +190,7 @@ public class MemberController {
 		
 		return "memberRec";
 	}
-	
+	//닉네임 클릭시 보여지는 친구정보
 	@RequestMapping(value="/othersProfile.do")
 	public String othersProfile(SearchCriteria scri, @RequestParam("midx") int midx, Model model) {		
 		int cnt = bs.boardTotalCount2(scri, midx);
@@ -209,7 +209,7 @@ public class MemberController {
 		
 		return "othersProfile";
 	}
-	//회占쏙옙占쏙옙占쏙옙
+	//회원정보
 	@RequestMapping(value="/memberProfile.do")
 	public String memberProfile(			
 			Model model, HttpSession session
@@ -220,7 +220,7 @@ public class MemberController {
 
 		return "memberProfile";
 	}
-	//회占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙
+	//회원정보수정
 	@RequestMapping(value = "/memberProfileModify.do")
 	public String memberProfileModify(
 			Model model, HttpSession session
@@ -238,7 +238,7 @@ public class MemberController {
 			@RequestParam("uploadfile") MultipartFile uploadfile, @RequestParam("intro") String intro, RedirectAttributes rttr,
 			HttpSession session, Model model) {
 		
-		String savePath = "D:/dev_html/uploadFile";
+		String savePath = "D:/sts-dev/uploadfiles";
 		String rename = null;
 		
 	
@@ -301,8 +301,7 @@ public class MemberController {
 	         @RequestParam("memberemail") String memberemail,
 	          HttpServletRequest request, RedirectAttributes rttr) {
 	   MemberVo mv = ms.memberFindId(membername, memberemail);
-	   //System.out.println("ms"+ms);
-	   //System.out.println("占심뱄옙占쏙옙占싱듸옙"+mv.getMemberid());
+	  
 	   String path =null;
 	   if (mv == null) {
 	         rttr.addFlashAttribute("msg","회원 정보가 맞지 않습니다.");
@@ -332,8 +331,7 @@ public class MemberController {
 			@RequestParam("memberemail") String memberemail,
 			HttpServletRequest request, RedirectAttributes rttr) {
 		   MemberVo mv = ms.memberFindPwd(memberid, memberemail);
-		   //System.out.println("ms"+ms);
-		   //System.out.println("占심뱄옙占쏙옙占싱듸옙"+mv.getMemberid());
+	
 		   String path =null;
 		   if (mv == null) {
 		         rttr.addFlashAttribute("msg","회원 정보가 맞지 않습니다.");

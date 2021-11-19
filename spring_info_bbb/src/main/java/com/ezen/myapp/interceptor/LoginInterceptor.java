@@ -9,7 +9,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter{
 
-	//로그인을 하고 난후 세션값을 담아놓는 역할 클래스
+
 	
 	@Override
 	public void postHandle(
@@ -33,7 +33,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			HttpServletResponse response, 
 			Object handler) {
 		
-		//메소드 동작전에 세션값이 있으면 제거
+		//硫붿냼�뱶 �룞�옉�쟾�뿉 �꽭�뀡媛믪씠 �엳�쑝硫� �젣嫄�
 		
 		HttpSession session = request.getSession();
 		if (session.getAttribute("memberid")  != null) {

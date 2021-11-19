@@ -42,8 +42,6 @@ public class BoardServiceImpl implements BoardService  {
 	@Override
 	public int boardTotalCount(SearchCriteria scri) {
 	
-		//占쏙옙占싱뱄옙티占쏙옙 占쏙옙占쏙옙占쌔쇽옙 占쏙옙占싱뱄옙티占쏙옙占쏙옙 
-		//占쏙옙占쏙옙클占쏙옙占쏙옙占쏙옙占쏙옙 占쌨소드를 占쌀뤄옙占쏙옙 xml占쏙옙 占쏙옙溝占� 占쏙옙占쏙옙占쏙옙 id占쏙옙 占쏙옙占싸듸옙占실어서 占쏙옙占쏙옙磯占�
 		int cnt = 0;
 		BoardService_Mapper bsm=sqlSession.getMapper(BoardService_Mapper.class);
 		cnt = bsm.boardTotalCount(scri);

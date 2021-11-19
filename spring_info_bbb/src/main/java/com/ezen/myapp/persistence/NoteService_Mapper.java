@@ -10,7 +10,7 @@ import com.ezen.myapp.domain.SearchCriteria;
 
 public interface NoteService_Mapper {
 	
-	//占쏙옙占싱뱄옙티占쏙옙占쏙옙 占쏙옙占쏙옙占� 占쌨소드를 占쏙옙占쏙옙占싼댐옙
+
 	
 	public int noteSend(HashMap<String,Object> hm);
 	

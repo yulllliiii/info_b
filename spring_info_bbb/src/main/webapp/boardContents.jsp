@@ -4,6 +4,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.ezen.myapp.domain.*" %>    
 <%BoardVo bv = (BoardVo)request.getAttribute("bv");%> 
+<% MemberVo mv = (MemberVo)request.getAttribute("mv");%> 
 <%int midx = (int)request.getAttribute("midx");%>
 <%String membernickname = (String)request.getAttribute("membernickname");%> 
     <head>
@@ -316,16 +317,18 @@ $.more = function(){
 <tr style=background-color:gray>
 <td style="width:100px;" >제목</td>
 <td><%=bv.getSubject() %></td>
-
+<c:forEach var="bv" items="${alist}" varStatus="status">
+<td style="width:150px;">&nbsp;&nbsp;&nbsp;&nbsp;닉네임&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/othersProfile.do?midx=${bv.midx}">${bv.membernickname}</a></td> 
+</c:forEach>
 <td style="width:150px;">&nbsp;&nbsp;<img src="<%=request.getContextPath()%>/resources/assets/img/hit5.png" alt="..." id="img3">&nbsp;&nbsp;<%=bv.getHit()%></td>
 <td style="width:150px;">&nbsp;&nbsp;&nbsp;&nbsp;댓글수&nbsp;&nbsp;<%=bv.getReplycnt()%></td>
 <td style="width:150px;">&nbsp;&nbsp;&nbsp;&nbsp;조회수&nbsp;&nbsp; <%=bv.getViewcount()%></td>
 </tr>
 <tr >
 <td >내용</td>
-<td colspan=4 style="height:300px;">
+<td colspan=5 style="height:300px;">
 <% if(bv.getFilename() != null){%>
-<img src="<%=request.getContextPath() %>/board/displayFile.do?fileName=<%=bv.getFilename() %>" >
+<img src="<%=request.getContextPath() %>/board/displayFile.do?fileName=<%=bv.getFilename()%>" >
 <%}%>
 <br>
 <%=bv.getContents()%>
